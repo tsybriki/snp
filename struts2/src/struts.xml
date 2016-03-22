@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.1.dtd">
+<!--suppress Struts2ModelInspection -->
+<struts>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="snp-base" extends="struts-default" abstract="true">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+        </result-types>
+    </package>
+
+    <package name="default" extends="snp-base">
+        <action name="" class="base" method="execute">
+            <result name="success" type="redirectAction">layout</result>
+        </action>
+        <action name="layout" class="base" method="execute">
+            <result name="success">/user/index.jsp</result>
+        </action>
+    </package>
+
+    <package name="user" extends="snp-base" namespace="/user">
+        <action name="view" class="userProfile" method="view">
+            <param name="id"/>
+            <result name="success">/user/profile.jsp</result>
+        </action>
+
+        <action name="tabs" class="userProfile" method="tabs">
+            <param name="id"/>
+            <result name="success">/user/profile-tabs.jsp</result>
+        </action>
+
+        <action name="list">
+            <result name="success">/user/list.jsp</result>
+        </action>
+
+        <action name="list-trainings" class="listTrainings" method="execute">
+            <result name="success">/user/trainings.jsp</result>
+        </action>
+    </package>
+
+    <package name="user-json" extends="json-default">
+        <action name="save" class="userProfile" method="save">
+            <result type="json">
+                <param name="noCache">true</param>
+                <param name="excludeNullProperties">true</param>
+                <param name="includeProperties">
+                    saveResult.*
+                </param>
+            </result>
+        </action>
+        <action name="list" class="listUsers" method="execute">
+            <result name="success" type="json">
+                <param name="noCache">true</param>
+                <param name="includeProperties">
+                    users.*
+                </param>
+            </result>
+        </action>
+        <action name="list-trainings" class="listTrainings" method="list">
+            <result name="success" type="json">
+                <param name="noCache">true</param>
+                <param name="includeProperties">
+                    trainings.*
+                </param>
+            </result>
+        </action>
+    </package>
+
+</struts>

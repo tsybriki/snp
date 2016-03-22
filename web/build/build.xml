@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="snp.web" basedir=".." default="redeploy">
+
+    <property name="build.base" value="${basedir}/build"/>
+    <property file="${build.base}\build.web.properties"/>
+
+    <target name="redeploy">
+        <touch file="${tomcat.exploded.web.xml}"/>
+    </target>
+
+</project>

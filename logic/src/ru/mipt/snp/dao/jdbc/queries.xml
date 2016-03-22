@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<queries>
+    <query id="get.user.with.roles">
+        <![CDATA[
+                select u.*, u2r.* from users u, user_to_role u2r where u.login_id = :userid and u.id = u2r.user_id
+                ]]>
+    </query>
+    <query id="get.user.by.id">
+        <![CDATA[
+                select u.* from users u where id = :userId
+                ]]>
+    </query>
+    <query id="get.user.trainings">
+        <![CDATA[
+                select id, user_id, name, description from training where user_id = :userid
+                ]]>
+    </query>
+    <query id="get.all.users">
+        <![CDATA[
+                select u.id, u.first_name, u.last_name, u.gender, u.birth_date from users u order by u.last_name, u.first_name
+                ]]>
+    </query>
+
+    <query id="insert.new.user.training">
+        <![CDATA[
+                insert into training (id, user_id, name, description) values (null, :user_id, :name, :description)
+                ]]>
+    </query>
+    <query id="insert.user.training.data">
+        <![CDATA[
+                insert into training_data (training_id, data) values (?, ?)
+                ]]>
+    </query>
+    <query id="update.user.profile">
+        <![CDATA[
+                update users set first_name = :firstName, last_name = :lastName, password = :password,
+                                 birth_date = date(:birthDate), gender = :gender        
+                 where login_id = :userid
+                ]]>
+    </query>
+</queries>

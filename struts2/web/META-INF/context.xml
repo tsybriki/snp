@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/snp">
+    <Resource name="jdbc/snp-ds" auth="Container"
+              type="javax.sql.DataSource" username="snp" password="snp"
+              driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/snp?useUnicode=true&amp;characterEncoding=utf-8"
+              maxActive="20" maxIdle="4"/>
+</Context>

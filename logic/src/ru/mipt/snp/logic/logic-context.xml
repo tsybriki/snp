@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+       ">
+
+    <bean id="securityLogic" class="ru.mipt.snp.logic.impl.SecurityLogicImpl"/>
+
+    <bean id="profileLogic" class="ru.mipt.snp.logic.impl.ProfileLogicImpl">
+        <property name="profileDao" ref="profileDao"/>        
+    </bean>
+
+    <bean id="trainingLogic" class="ru.mipt.snp.logic.impl.TrainingDataLogicImpl">
+        <property name="profileDao" ref="profileDao"/>
+        <property name="trainingDao" ref="trainingDao"/>
+        <property name="securityLogic" ref="securityLogic"/>
+    </bean>
+
+</beans>

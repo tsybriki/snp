@@ -1,0 +1,83 @@
+.login-outer {
+    margin-top: 20%;
+    margin-left: 40%;
+}
+
+.login-form-table {
+    padding: 10px
+}
+
+.login-form-table #header-cell {
+    text-align: center;
+    font-size: 30pt;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.login-form-table #remember-me-cell, .login-form-table #buttons-row {
+    text-align: right;
+}
+
+.login-form-table #buttons-row {
+    text-align: center;
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+#wrapper-table {
+    height: 100%;
+    width: 100%;
+    border: 1px outset black;
+    border-collapse: separate;
+}
+
+#wrapper-table td#header, #wrapper-table td#footer {
+    height: 50px;
+}
+
+#header-table, #footer-table, #menu-table {
+    width: 100%;
+    height: 100%;
+}
+
+#header-table td{
+    text-align: right;
+    vertical-align: top;
+    font-size: 30px;
+    color: #5f9ea0;
+    font-weight: bold;
+}
+
+#wrapper-table td#menu {
+    width: 100px;
+    height: 100%;
+    vertical-align: top;
+}
+
+#menu-table td {
+    width: 100%;
+    height: 30px;
+    vertical-align: top;
+    text-align: left;
+    background-color: #5f9ea0;
+    color: white;
+    font-weight: bold;
+}
+
+#footer-table td {
+    text-align: center;
+    vertical-align: top;
+    width: 100%;
+    font-size: 30px;
+    color: #5f9ea0;
+    font-weight: bold;
+}
+
+#wrapper-table td#body {
+    height: 100%;
+    /*width: 100%;*/
+    vertical-align: top;
+    text-align: center;
+}

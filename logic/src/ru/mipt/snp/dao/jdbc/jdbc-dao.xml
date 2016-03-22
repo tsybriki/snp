@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+       ">
+
+    <bean id="queryHolder" class="ru.mipt.snp.dao.jdbc.common.QueryHolderFactoryBean">
+        <property name="configFile" value="classpath:ru/mipt/snp/dao/jdbc/queries.xml"/>
+    </bean>
+
+    <bean id="profileDao" class="ru.mipt.snp.dao.jdbc.JdbcProfileDao">
+        <constructor-arg ref="datasource"/>
+        <property name="queries" ref="queryHolder"/>
+    </bean>
+
+    <bean id="trainingDao" class="ru.mipt.snp.dao.jdbc.JdbcTrainingDao">
+        <constructor-arg ref="datasource"/>
+        <property name="queries" ref="queryHolder"/>
+    </bean>
+
+</beans>
